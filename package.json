@@ -1,6 +1,6 @@
 {
   "name": "@kirknock/node-openxr-babylonjs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "Plain browser-style Babylon.js WebXR helpers (engine, default XR experience, asset loading and slideshow, floor, controller visuals and logging). Imports only @babylonjs/*.",
   "license": "MIT",
