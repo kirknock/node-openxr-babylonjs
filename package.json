@@ -1,0 +1,70 @@
+{
+  "name": "@kirknock/node-openxr-babylonjs",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "Plain browser-style Babylon.js WebXR helpers (engine, default XR experience, asset loading and slideshow, floor, controller visuals and logging). Imports only @babylonjs/*.",
+  "license": "MIT",
+  "author": "kirknock",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirknock/node-openxr-babylonjs.git"
+  },
+  "homepage": "https://github.com/kirknock/node-openxr-babylonjs#readme",
+  "bugs": {
+    "url": "https://github.com/kirknock/node-openxr-babylonjs/issues"
+  },
+  "keywords": [
+    "babylonjs",
+    "webxr",
+    "xr",
+    "vr",
+    "ar",
+    "openxr",
+    "gltf"
+  ],
+  "exports": {
+    "./*.js": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src tests",
+    "test": "nodexr-test all",
+    "test:pure": "nodexr-test pure",
+    "push": "npm run build && npx --yes yalc@1.0.0-pre.53 publish --push",
+    "smoke:controller-log": "tsx tests/controller-log-smoke.ts",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@babylonjs/core": "9.33.2",
+    "@babylonjs/loaders": "9.33.2"
+  },
+  "devDependencies": {
+    "@babylonjs/core": "9.33.2",
+    "@babylonjs/loaders": "9.33.2",
+    "@kirknock/node-openxr-core": "^0.3.1",
+    "@napi-rs/canvas": "1.0.11",
+    "@types/node": "^24.0.0",
+    "@types/webxr": "^0.5.14",
+    "eslint": "10.13.0",
+    "iwer": "2.7.0",
+    "koffi": "2.16.3",
+    "tsx": "^4.20.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "8.70.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
